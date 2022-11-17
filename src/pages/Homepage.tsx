@@ -28,16 +28,16 @@ const Homepage = () => {
   console.log(currentSlide, data.length);
   React.useEffect(() => {}, [data]);
   return (
-    <div className="bg-teal-300">
+    <div className="bg-teal-300 font-poppins">
       <CarouselWrap events={events} className="h-[50vh] relative ">
         <img
           src={currentSlide.value.url}
           alt=""
           className="w-full h-full object-cover -z-[1]"
         />
-        <div className=" top-0 absolute w-full h-full px-4">
+        <div className=" top-0 absolute w-full h-full px-8  bg-blue-500  text-white bg-opacity-50">
           <div className=" h-full p-4 mx-auto flex items-center">
-            <h1 className="font-bold text-2xl font-serif capitalize">
+            <h1 className="font-bold text-2xl capitalize">
               {currentSlide.value.title}
             </h1>
           </div>

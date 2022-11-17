@@ -16,12 +16,12 @@ const ButtonWrapper = ({ children, onClick, side }: any) => {
   return (
     <div
       className={`${
-        side === "left" ? "left-5" : "right-5"
+        side === "left" ? "left-[5px]" : "right-5"
       } absolute top-0 b-0 flex items-center z-10 h-full`}
     >
       <button
         onClick={onClick}
-        className="bg-red-500 text-white px-2 py-1 rounded-md"
+        className="bg-slate-300 bg-opacity-50 hover:bg-opacity-100 hover:bg-orange-500 text-white trasition-[background] duration-300 ease-linear px-2 py-4 rounded-md"
       >
         {children}
       </button>
