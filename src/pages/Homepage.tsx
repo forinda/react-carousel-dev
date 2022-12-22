@@ -19,25 +19,51 @@ const Homepage = () => {
               ? { transition: "all 0.3s ease", borderColor: "orange",backgroundColor:"white" }
               : {backgroundColor:"white",transition: "all 0.3s ease", borderColor: "white" }
           }
-          onClick={() => events.moveToIndexSlide(i + 1)}
+          onClick={() => {
+            const sliderImg = document.getElementById('sliderImg') as HTMLImageElement;
+
+            sliderImg.classList.add('animated');
+            events.moveToIndexSlide(i + 1)
+          }}
         ></button>
       );
     }
     return dots;
   };
-  console.log(currentSlide, data.length);
+  //console.log(currentSlide, data.length);
+
+
   React.useEffect(() => {}, [data]);
+
+
+  React.useEffect(() => {
+    const sliderImg = document.getElementById('sliderImg') as HTMLImageElement;
+    const sliderTxt = document.getElementById('sliderTxt') as HTMLImageElement;
+
+      sliderImg.classList.add('animated');
+      sliderTxt.classList.add('animated');
+      setTimeout(() => {
+        sliderImg.classList.remove('animated'); 
+        sliderTxt.classList.remove('animated'); 
+      }, 500);
+
+  }, [currentSlide.value.url]);
+
+
+  console.log(currentSlide.value.url)
+
   return (
     <div className="bg-teal-300 font-poppins">
-      <CarouselWrap events={events} className="h-[50vh] relative ">
+      <CarouselWrap events={events} className="h-[50vh] relative slider-wrapper">
         <img
+          id="sliderImg"
           src={currentSlide.value.url}
           alt=""
           className="w-full h-full object-cover -z-[1]"
         />
         <div className=" top-0 absolute w-full h-full px-8  bg-blue-500  text-white bg-opacity-50">
           <div className=" h-full p-4 mx-auto flex items-center">
-            <h1 className="font-bold text-2xl capitalize">
+            <h1 className="font-bold text-2xl capitalize"id="sliderTxt">
               {currentSlide.value.title}
             </h1>
           </div>

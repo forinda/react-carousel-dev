@@ -120,7 +120,7 @@ function CarouselProvider({
 
   const moveToNext = () => dispatch({ type: "NEXT" });
   const moveToPrevious = () => dispatch({ type: "PREVIOUS" });
-  const moveToIndexSlide = (index: number) =>
+  const moveToIndexSlide = (index: number) => 
     dispatch({ type: "GOTO", payload: index });
 
   React.useEffect(() => {
